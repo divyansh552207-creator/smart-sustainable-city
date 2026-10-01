@@ -1,0 +1,257 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City - Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <h2>🌱 Smart City</h2>
+
+        <nav>
+            <a href="part1.html">Dashboard</a>
+            <a href="problem.html">Problem Detection</a>
+            <a href="sol.html" class="active">Solutions</a>
+            <a href="simulator.html">What-If Simulator</a>
+            <a href="comparison.html">Technology Comparison</a>
+            <a href="impact.html">Impact Report</a>
+        </nav>
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <h1>Smart Solutions</h1>
+                <p>Solutions based on detected city problems</p>
+            </div>
+        </header>
+
+
+        <!-- SOLUTION CARDS -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <div class="icon">💧</div>
+
+                <h3>Smart Water Management</h3>
+
+                <p>
+                    Abnormal water usage can be monitored using
+                    smart water meters and leak detection.
+                </p>
+
+                <button onclick="showSolution('water')">
+                    View Solution
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🗑️</div>
+
+                <h3>Smart Waste Management</h3>
+
+                <p>
+                    Smart bins and optimized collection routes
+                    can improve waste management.
+                </p>
+
+                <button onclick="showSolution('waste')">
+                    View Solution
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🚗</div>
+
+                <h3>Smart Traffic Management</h3>
+
+                <p>
+                    Adaptive traffic signals and traffic sensors
+                    can help manage congestion.
+                </p>
+
+                <button onclick="showSolution('traffic')">
+                    View Solution
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🌫️</div>
+
+                <h3>Air Quality Management</h3>
+
+                <p>
+                    Air-quality sensors and green zones can help
+                    monitor and manage pollution.
+                </p>
+
+                <button onclick="showSolution('air')">
+                    View Solution
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULT AREA -->
+
+        <section class="score-box" id="solutionResult">
+
+            <h2>Select a Solution</h2>
+
+            <p>
+                Click <b>View Solution</b> on any problem above
+                to see the proposed solution.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+function showSolution(type) {
+
+    const result =
+        document.getElementById("solutionResult");
+
+
+    if (type === "water") {
+
+        result.innerHTML = `
+
+            <h2>💧 Smart Water Management</h2>
+
+            <p>
+                <strong>Problem:</strong>
+                Abnormal water usage
+            </p>
+
+            <p>
+                <strong>Solution:</strong>
+                Install smart water meters, leak detection
+                sensors and automated monitoring.
+            </p>
+
+            <p>
+                <strong>Expected Impact:</strong>
+                Reduced water wastage and better monitoring.
+            </p>
+
+        `;
+
+    }
+
+
+    else if (type === "waste") {
+
+        result.innerHTML = `
+
+            <h2>🗑️ Smart Waste Management</h2>
+
+            <p>
+                <strong>Problem:</strong>
+                Waste collection requirement
+            </p>
+
+            <p>
+                <strong>Solution:</strong>
+                Use smart bins with fill-level sensors and
+                optimized collection routes.
+            </p>
+
+            <p>
+                <strong>Expected Impact:</strong>
+                More efficient collection and reduced overflow.
+            </p>
+
+        `;
+
+    }
+
+
+    else if (type === "traffic") {
+
+        result.innerHTML = `
+
+            <h2>🚗 Smart Traffic Management</h2>
+
+            <p>
+                <strong>Problem:</strong>
+                Traffic congestion
+            </p>
+
+            <p>
+                <strong>Solution:</strong>
+                Use traffic sensors and adaptive signals
+                to respond to traffic conditions.
+            </p>
+
+            <p>
+                <strong>Expected Impact:</strong>
+                Better traffic flow and reduced congestion.
+            </p>
+
+        `;
+
+    }
+
+
+    else if (type === "air") {
+
+        result.innerHTML = `
+
+            <h2>🌫️ Air Quality Management</h2>
+
+            <p>
+                <strong>Problem:</strong>
+                Poor air quality
+            </p>
+
+            <p>
+                <strong>Solution:</strong>
+                Install air-quality monitoring sensors and
+                develop additional green zones.
+            </p>
+
+            <p>
+                <strong>Expected Impact:</strong>
+                Better pollution monitoring and environmental
+                management.
+            </p>
+
+        `;
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,557 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Technology Comparison</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h2>🌱 Smart City</h2>
+
+        <nav>
+
+            <a href="part1.html">
+                Dashboard
+            </a>
+
+            <a href="problem.html">
+                Problem Detection
+            </a>
+
+            <a href="sol.html">
+                Solutions
+            </a>
+
+            <a href="simulator.html">
+                What-If Simulator
+            </a>
+
+            <a href="comparison.html" class="active">
+                Technology Comparison
+            </a>
+
+            <a href="impact.html">
+                Impact Report
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Technology Comparison
+                </h1>
+
+                <p>
+                    Compare different sustainability technologies
+                </p>
+
+            </div>
+
+
+            <select>
+
+                <option>
+                    Greater Noida
+                </option>
+
+                <option>
+                    Delhi
+                </option>
+
+                <option>
+                    Mumbai
+                </option>
+
+                <option>
+                    Lucknow
+                </option>
+
+            </select>
+
+        </header>
+
+
+
+        <!-- COMPARISON TABLE -->
+
+        <div class="comparison-table">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Technology
+                        </th>
+
+                        <th>
+                            Investment
+                        </th>
+
+                        <th>
+                            Annual Saving
+                        </th>
+
+                        <th>
+                            ROI
+                        </th>
+
+                        <th>
+                            Payback
+                        </th>
+
+                        <th>
+                            Impact
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- WATER -->
+
+                    <tr>
+
+                        <td>
+                            💧 Smart Water Sensors
+                        </td>
+
+                        <td>
+                            ₹8 Lakh
+                        </td>
+
+                        <td>
+                            ₹3.2 Lakh
+                        </td>
+
+                        <td>
+                            40%
+                        </td>
+
+                        <td>
+                            2.5 Years
+                        </td>
+
+                        <td>
+                            18% Water Saving
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- ENERGY -->
+
+                    <tr>
+
+                        <td>
+                            ⚡ Smart Energy Meters
+                        </td>
+
+                        <td>
+                            ₹10 Lakh
+                        </td>
+
+                        <td>
+                            ₹4.5 Lakh
+                        </td>
+
+                        <td>
+                            45%
+                        </td>
+
+                        <td>
+                            2.2 Years
+                        </td>
+
+                        <td>
+                            20% Energy Saving
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- WASTE -->
+
+                    <tr>
+
+                        <td>
+                            🗑️ Smart Waste Bins
+                        </td>
+
+                        <td>
+                            ₹6 Lakh
+                        </td>
+
+                        <td>
+                            ₹2.5 Lakh
+                        </td>
+
+                        <td>
+                            35%
+                        </td>
+
+                        <td>
+                            2.4 Years
+                        </td>
+
+                        <td>
+                            25% Waste Reduction
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- TRAFFIC -->
+
+                    <tr>
+
+                        <td>
+                            🚗 Smart Traffic Monitoring
+                        </td>
+
+                        <td>
+                            ₹15 Lakh
+                        </td>
+
+                        <td>
+                            ₹5 Lakh
+                        </td>
+
+                        <td>
+                            33%
+                        </td>
+
+                        <td>
+                            3 Years
+                        </td>
+
+                        <td>
+                            15% Congestion Reduction
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+        <!-- SELECT TECHNOLOGY -->
+
+        <div class="card comparison-note">
+
+            <h2>
+                Explore Technology
+            </h2>
+
+            <p>
+                Select a technology to see its details.
+            </p>
+
+
+            <select id="technologySelect">
+
+                <option value="">
+                    -- Select Technology --
+                </option>
+
+                <option value="water">
+                    💧 Smart Water Sensors
+                </option>
+
+                <option value="energy">
+                    ⚡ Smart Energy Meters
+                </option>
+
+                <option value="waste">
+                    🗑️ Smart Waste Bins
+                </option>
+
+                <option value="traffic">
+                    🚗 Smart Traffic Monitoring
+                </option>
+
+            </select>
+
+
+            <button onclick="showTechnology()">
+                Compare Technology
+            </button>
+
+        </div>
+
+
+
+        <!-- RESULT -->
+
+        <section
+            class="score-box"
+            id="technologyResult"
+        >
+
+            <h2>
+                Technology Details
+            </h2>
+
+            <p>
+                Select a technology above and click
+                <b>Compare Technology</b>.
+            </p>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function showTechnology() {
+
+
+    const selected =
+        document.getElementById(
+            "technologySelect"
+        ).value;
+
+
+    const result =
+        document.getElementById(
+            "technologyResult"
+        );
+
+
+    if (selected === "") {
+
+        result.innerHTML = `
+
+            <h2>
+                ⚠️ Select a Technology
+            </h2>
+
+            <p>
+                Please choose a technology
+                before comparing.
+            </p>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    // WATER
+
+    if (selected === "water") {
+
+        result.innerHTML = `
+
+            <h2>
+                💧 Smart Water Sensors
+            </h2>
+
+            <p>
+                <strong>Investment:</strong>
+                ₹8 Lakh
+            </p>
+
+            <p>
+                <strong>Annual Saving:</strong>
+                ₹3.2 Lakh
+            </p>
+
+            <p>
+                <strong>ROI:</strong>
+                40%
+            </p>
+
+            <p>
+                <strong>Payback:</strong>
+                2.5 Years
+            </p>
+
+            <p>
+                <strong>Impact:</strong>
+                18% Water Saving
+            </p>
+
+        `;
+
+    }
+
+
+
+    // ENERGY
+
+    else if (selected === "energy") {
+
+        result.innerHTML = `
+
+            <h2>
+                ⚡ Smart Energy Meters
+            </h2>
+
+            <p>
+                <strong>Investment:</strong>
+                ₹10 Lakh
+            </p>
+
+            <p>
+                <strong>Annual Saving:</strong>
+                ₹4.5 Lakh
+            </p>
+
+            <p>
+                <strong>ROI:</strong>
+                45%
+            </p>
+
+            <p>
+                <strong>Payback:</strong>
+                2.2 Years
+            </p>
+
+            <p>
+                <strong>Impact:</strong>
+                20% Energy Saving
+            </p>
+
+        `;
+
+    }
+
+
+
+    // WASTE
+
+    else if (selected === "waste") {
+
+        result.innerHTML = `
+
+            <h2>
+                🗑️ Smart Waste Bins
+            </h2>
+
+            <p>
+                <strong>Investment:</strong>
+                ₹6 Lakh
+            </p>
+
+            <p>
+                <strong>Annual Saving:</strong>
+                ₹2.5 Lakh
+            </p>
+
+            <p>
+                <strong>ROI:</strong>
+                35%
+            </p>
+
+            <p>
+                <strong>Payback:</strong>
+                2.4 Years
+            </p>
+
+            <p>
+                <strong>Impact:</strong>
+                25% Waste Reduction
+            </p>
+
+        `;
+
+    }
+
+
+
+    // TRAFFIC
+
+    else if (selected === "traffic") {
+
+        result.innerHTML = `
+
+            <h2>
+                🚗 Smart Traffic Monitoring
+            </h2>
+
+            <p>
+                <strong>Investment:</strong>
+                ₹15 Lakh
+            </p>
+
+            <p>
+                <strong>Annual Saving:</strong>
+                ₹5 Lakh
+            </p>
+
+            <p>
+                <strong>ROI:</strong>
+                33%
+            </p>
+
+            <p>
+                <strong>Payback:</strong>
+                3 Years
+            </p>
+
+            <p>
+                <strong>Impact:</strong>
+                15% Congestion Reduction
+            </p>
+
+        `;
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

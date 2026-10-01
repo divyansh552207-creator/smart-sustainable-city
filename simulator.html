@@ -1,0 +1,515 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What-If Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <h2>🌱 Smart City</h2>
+
+        <nav>
+
+            <a href="part1.html">
+                Dashboard
+            </a>
+
+            <a href="problem.html">
+                Problem Detection
+            </a>
+
+            <a href="sol.html">
+                Solutions
+            </a>
+
+            <a href="simulator.html" class="active">
+                What-If Simulator
+            </a>
+
+            <a href="comparison.html">
+                Technology Comparison
+            </a>
+
+            <a href="impact.html">
+                Impact Report
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    What-If Simulator
+                </h1>
+
+                <p>
+                    See the possible impact of a sustainability project
+                </p>
+
+            </div>
+
+
+            <select id="city">
+
+                <option>
+                    Greater Noida
+                </option>
+
+                <option>
+                    Delhi
+                </option>
+
+                <option>
+                    Mumbai
+                </option>
+
+                <option>
+                    Lucknow
+                </option>
+
+            </select>
+
+        </header>
+
+
+
+        <!-- ================= CONFIGURATION ================= -->
+
+        <div class="card simulator-box">
+
+            <h2>
+                Project Configuration
+            </h2>
+
+
+            <!-- TECHNOLOGY -->
+
+            <label>
+                Choose Technology
+            </label>
+
+            <select id="technology">
+
+                <option value="water">
+                    Smart Water Sensors
+                </option>
+
+                <option value="energy">
+                    Smart Energy Meters
+                </option>
+
+                <option value="waste">
+                    Smart Waste Bins
+                </option>
+
+            </select>
+
+
+            <!-- BUDGET -->
+
+            <label>
+                Investment Budget (₹)
+            </label>
+
+            <input
+                type="number"
+                id="budget"
+                value="800000"
+                min="10000"
+            >
+
+
+            <!-- COVERAGE -->
+
+            <label>
+                Area Coverage
+            </label>
+
+            <input
+                type="range"
+                id="coverage"
+                min="10"
+                max="100"
+                value="50"
+            >
+
+            <p>
+                Coverage:
+                <b id="coverageValue">
+                    50%
+                </b>
+            </p>
+
+
+            <!-- BUTTON -->
+
+            <button onclick="runSimulation()">
+                🚀 Run Simulation
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= RESULTS ================= -->
+
+        <section class="cards">
+
+
+            <!-- INVESTMENT -->
+
+            <div class="card">
+
+                <div class="icon">
+                    💰
+                </div>
+
+                <h3>
+                    Investment
+                </h3>
+
+                <h2 id="investment">
+                    ₹8,00,000
+                </h2>
+
+            </div>
+
+
+
+            <!-- SAVING -->
+
+            <div class="card">
+
+                <div class="icon">
+                    💵
+                </div>
+
+                <h3>
+                    Annual Saving
+                </h3>
+
+                <h2 id="saving">
+                    ₹0
+                </h2>
+
+            </div>
+
+
+
+            <!-- ROI -->
+
+            <div class="card">
+
+                <div class="icon">
+                    📈
+                </div>
+
+                <h3>
+                    ROI
+                </h3>
+
+                <h2 id="roi">
+                    0%
+                </h2>
+
+            </div>
+
+
+
+            <!-- PAYBACK -->
+
+            <div class="card">
+
+                <div class="icon">
+                    ⏱️
+                </div>
+
+                <h3>
+                    Payback Period
+                </h3>
+
+                <h2 id="payback">
+                    0 Years
+                </h2>
+
+            </div>
+
+
+
+            <!-- RESOURCE IMPACT -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Resource Saving
+                </h3>
+
+                <h2 id="impact">
+                    0%
+                </h2>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= RESULT MESSAGE ================= -->
+
+        <section class="score-box">
+
+            <h2>
+                Simulation Result
+            </h2>
+
+            <p id="resultMessage">
+                Configure the project and click
+                <b>Run Simulation</b>.
+            </p>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+// ==========================================
+// COVERAGE DISPLAY
+// ==========================================
+
+const coverage =
+    document.getElementById("coverage");
+
+const coverageValue =
+    document.getElementById("coverageValue");
+
+
+coverage.addEventListener("input", function () {
+
+    coverageValue.textContent =
+        coverage.value + "%";
+
+});
+
+
+
+// ==========================================
+// RUN SIMULATION
+// ==========================================
+
+function runSimulation() {
+
+
+    // Get values
+
+    const technology =
+        document.getElementById("technology").value;
+
+
+    const budget =
+        Number(
+            document.getElementById("budget").value
+        );
+
+
+    const areaCoverage =
+        Number(
+            document.getElementById("coverage").value
+        );
+
+
+
+    // Check budget
+
+    if (budget <= 0) {
+
+        alert(
+            "Please enter a valid investment budget."
+        );
+
+        return;
+
+    }
+
+
+
+    // ==========================================
+    // TECHNOLOGY IMPACT
+    // ==========================================
+
+    let baseSavingRate;
+
+    let technologyName;
+
+
+
+    if (technology === "water") {
+
+        baseSavingRate = 0.20;
+
+        technologyName =
+            "Smart Water Sensors";
+
+    }
+
+
+    else if (technology === "energy") {
+
+        baseSavingRate = 0.25;
+
+        technologyName =
+            "Smart Energy Meters";
+
+    }
+
+
+    else if (technology === "waste") {
+
+        baseSavingRate = 0.15;
+
+        technologyName =
+            "Smart Waste Bins";
+
+    }
+
+
+
+    // ==========================================
+    // CALCULATE IMPACT
+    // ==========================================
+
+    const coverageFactor =
+        areaCoverage / 100;
+
+
+    const annualSaving =
+        budget *
+        baseSavingRate *
+        coverageFactor;
+
+
+    const roi =
+        (annualSaving / budget) * 100;
+
+
+    const payback =
+        budget / annualSaving;
+
+
+    const resourceSaving =
+        baseSavingRate *
+        coverageFactor *
+        100;
+
+
+
+    // ==========================================
+    // DISPLAY RESULTS
+    // ==========================================
+
+    document.getElementById("investment")
+        .textContent =
+        "₹" +
+        budget.toLocaleString("en-IN");
+
+
+    document.getElementById("saving")
+        .textContent =
+        "₹" +
+        Math.round(annualSaving)
+            .toLocaleString("en-IN");
+
+
+    document.getElementById("roi")
+        .textContent =
+        roi.toFixed(1) + "%";
+
+
+    document.getElementById("payback")
+        .textContent =
+        payback.toFixed(1) +
+        " Years";
+
+
+    document.getElementById("impact")
+        .textContent =
+        resourceSaving.toFixed(1) +
+        "%";
+
+
+
+    // ==========================================
+    // RESULT MESSAGE
+    // ==========================================
+
+    document.getElementById("resultMessage")
+        .innerHTML = `
+
+        <strong>
+            ${technologyName}
+        </strong>
+        with
+        <strong>
+            ${areaCoverage}%
+        </strong>
+        area coverage could generate an estimated
+        annual saving of
+        <strong>
+            ₹${Math.round(annualSaving)
+                .toLocaleString("en-IN")}
+        </strong>.
+
+        `;
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

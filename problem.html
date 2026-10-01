@@ -1,0 +1,283 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Problem Detection - Smart City</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h2>🌱 Smart City</h2>
+
+        <nav>
+
+            <a href="part1.html">
+                Dashboard
+            </a>
+
+            <a href="problem.html" class="active">
+                Problem Detection
+            </a>
+
+            <a href="sol.html">
+                Solutions
+            </a>
+
+            <a href="simulator.html">
+                What-If Simulator
+            </a>
+
+            <a href="comparison.html">
+                Technology Comparison
+            </a>
+
+            <a href="impact.html">
+                Impact Report
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Problem Detection
+                </h1>
+
+                <p>
+                    Smart monitoring of city problems
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- PROBLEMS -->
+
+        <section
+            class="cards"
+            id="problemContainer"
+        >
+
+            <div class="card">
+
+                <h3>
+                    Loading problems...
+                </h3>
+
+                <p>
+                    Connecting to Smart City backend...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+async function loadProblems() {
+
+    const container =
+        document.getElementById(
+            "problemContainer"
+        );
+
+
+    try {
+
+        const response =
+            await fetch(
+                "http://localhost:5000/api/problems"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "API Error: " + response.status
+            );
+
+        }
+
+
+        const problems =
+            await response.json();
+
+
+        console.log(
+            "Problems received:",
+            problems
+        );
+
+
+        // Remove loading message
+
+        container.innerHTML = "";
+
+
+        // Create problem cards
+
+        problems.forEach(
+            function(problem) {
+
+
+                let icon = "⚠️";
+
+
+                if (problem.type === "Water") {
+
+                    icon = "💧";
+
+                }
+
+                else if (problem.type === "Waste") {
+
+                    icon = "🗑️";
+
+                }
+
+                else if (problem.type === "Traffic") {
+
+                    icon = "🚗";
+
+                }
+
+                else if (problem.type === "Air Quality") {
+
+                    icon = "🌫️";
+
+                }
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className = "card";
+
+
+                card.innerHTML = `
+
+                    <div class="icon">
+                        ${icon}
+                    </div>
+
+                    <h3>
+                        ${problem.title}
+                    </h3>
+
+                    <p>
+                        📍 Location:
+                        ${problem.location}
+                    </p>
+
+                    <p>
+                        🔎 Type:
+                        ${problem.type}
+                    </p>
+
+                    <p>
+                        ⚠️ Severity:
+                        <strong>
+                            ${problem.severity}
+                        </strong>
+                    </p>
+
+                    <span class="${
+                        problem.status === "Detected"
+                        ? "warning"
+                        : "normal"
+                    }">
+
+                        ${problem.status}
+
+                    </span>
+
+                `;
+
+
+                container.appendChild(card);
+
+            }
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Problem Detection Error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="card">
+
+                <div class="icon">
+                    ❌
+                </div>
+
+                <h3>
+                    Problem Detection Unavailable
+                </h3>
+
+                <p>
+                    Backend connection failed.
+                </p>
+
+                <p>
+                    Make sure the backend is running
+                    on port 5000.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+// Start loading problems
+
+loadProblems();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,451 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Impact Report</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h2>🌱 Smart City</h2>
+
+        <nav>
+
+            <a href="part1.html">
+                Dashboard
+            </a>
+
+            <a href="problem.html">
+                Problem Detection
+            </a>
+
+            <a href="sol.html">
+                Solutions
+            </a>
+
+            <a href="simulator.html">
+                What-If Simulator
+            </a>
+
+            <a href="comparison.html">
+                Technology Comparison
+            </a>
+
+            <a href="impact.html" class="active">
+                Impact Report
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Impact Report
+                </h1>
+
+                <p>
+                    Sustainability impact overview
+                </p>
+
+            </div>
+
+
+            <select id="city">
+
+                <option>
+                    Greater Noida
+                </option>
+
+                <option>
+                    Delhi
+                </option>
+
+                <option>
+                    Mumbai
+                </option>
+
+                <option>
+                    Lucknow
+                </option>
+
+            </select>
+
+        </header>
+
+
+
+        <!-- IMPACT CARDS -->
+
+        <section class="cards">
+
+
+            <!-- INVESTMENT -->
+
+            <div class="card">
+
+                <div class="icon">
+                    💰
+                </div>
+
+                <h3>
+                    Total Investment
+                </h3>
+
+                <h2 id="investment">
+                    ₹29 Lakh
+                </h2>
+
+            </div>
+
+
+
+            <!-- SAVINGS -->
+
+            <div class="card">
+
+                <div class="icon">
+                    📈
+                </div>
+
+                <h3>
+                    Annual Savings
+                </h3>
+
+                <h2 id="saving">
+                    ₹15.2 Lakh
+                </h2>
+
+            </div>
+
+
+
+            <!-- ENERGY -->
+
+            <div class="card">
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Energy Saved
+                </h3>
+
+                <h2 id="energy">
+                    20%
+                </h2>
+
+            </div>
+
+
+
+            <!-- WATER -->
+
+            <div class="card">
+
+                <div class="icon">
+                    💧
+                </div>
+
+                <h3>
+                    Water Saved
+                </h3>
+
+                <h2 id="water">
+                    18%
+                </h2>
+
+            </div>
+
+
+
+            <!-- WASTE -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🗑️
+                </div>
+
+                <h3>
+                    Waste Reduction
+                </h3>
+
+                <h2 id="waste">
+                    25%
+                </h2>
+
+            </div>
+
+
+
+            <!-- CO2 -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🌱
+                </div>
+
+                <h3>
+                    CO₂ Reduction
+                </h3>
+
+                <h2 id="co2">
+                    16%
+                </h2>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- OVERALL IMPACT -->
+
+        <section class="card report-summary">
+
+            <h2>
+                🌱 Overall Impact
+            </h2>
+
+            <p>
+
+                The proposed sustainability technologies can help
+                reduce resource consumption, improve city operations
+                and generate measurable financial and environmental
+                benefits.
+
+            </p>
+
+
+            <div class="impact-details">
+
+
+                <div>
+
+                    <h3>
+                        ROI
+                    </h3>
+
+                    <strong id="roi">
+                        52%
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <h3>
+                        Payback Period
+                    </h3>
+
+                    <strong id="payback">
+                        1.9 Years
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <h3>
+                        Sustainability Score
+                    </h3>
+
+                    <strong id="score">
+                        72 / 100
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- GENERATE REPORT BUTTON -->
+
+            <button onclick="generateReport()">
+                📊 Generate Impact Summary
+            </button>
+
+
+            <button onclick="window.print()">
+                🖨️ Print / Download Report
+            </button>
+
+
+        </section>
+
+
+
+        <!-- GENERATED REPORT -->
+
+        <section
+            class="score-box"
+            id="reportResult"
+        >
+
+            <h2>
+                Impact Summary
+            </h2>
+
+            <p>
+                Click <b>Generate Impact Summary</b>
+                to generate the city sustainability report.
+            </p>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function generateReport() {
+
+
+    const investment =
+        document.getElementById("investment")
+            .textContent;
+
+
+    const saving =
+        document.getElementById("saving")
+            .textContent;
+
+
+    const energy =
+        document.getElementById("energy")
+            .textContent;
+
+
+    const water =
+        document.getElementById("water")
+            .textContent;
+
+
+    const waste =
+        document.getElementById("waste")
+            .textContent;
+
+
+    const co2 =
+        document.getElementById("co2")
+            .textContent;
+
+
+    const roi =
+        document.getElementById("roi")
+            .textContent;
+
+
+    const payback =
+        document.getElementById("payback")
+            .textContent;
+
+
+    const score =
+        document.getElementById("score")
+            .textContent;
+
+
+
+    document.getElementById("reportResult")
+        .innerHTML = `
+
+        <h2>
+            🌱 City Sustainability Impact
+        </h2>
+
+        <p>
+            <strong>Total Investment:</strong>
+            ${investment}
+        </p>
+
+        <p>
+            <strong>Annual Savings:</strong>
+            ${saving}
+        </p>
+
+        <p>
+            <strong>Energy Saved:</strong>
+            ${energy}
+        </p>
+
+        <p>
+            <strong>Water Saved:</strong>
+            ${water}
+        </p>
+
+        <p>
+            <strong>Waste Reduction:</strong>
+            ${waste}
+        </p>
+
+        <p>
+            <strong>CO₂ Reduction:</strong>
+            ${co2}
+        </p>
+
+        <p>
+            <strong>ROI:</strong>
+            ${roi}
+        </p>
+
+        <p>
+            <strong>Payback Period:</strong>
+            ${payback}
+        </p>
+
+        <p>
+            <strong>Sustainability Score:</strong>
+            ${score}
+        </p>
+
+        <p>
+            ✅ Impact report generated successfully.
+        </p>
+
+        `;
+
+}
+
+</script>
+
+
+</body>
+
+</html>

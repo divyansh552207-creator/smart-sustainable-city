@@ -1,0 +1,311 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Sustainable Cities</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <h2>🌱 Smart City</h2>
+
+            <nav>
+
+                <a href="part1.html" class="active">
+                    Dashboard
+                </a>
+
+                <a href="problem.html">
+                    Problem Detection
+                </a>
+
+                <a href="sol.html">
+                    Solutions
+                </a>
+
+                <a href="simulator.html">
+                    What-If Simulator
+                </a>
+
+                <a href="comparison.html">
+                    Technology Comparison
+                </a>
+
+                <a href="impact.html">
+                    Impact Report
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main">
+
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Smart Sustainable City Overview
+                    </p>
+
+                </div>
+
+
+                <select id="citySelect">
+
+                    <option value="Greater Noida">
+                        Greater Noida
+                    </option>
+
+                    <option value="Delhi">
+                        Delhi
+                    </option>
+
+                    <option value="Mumbai">
+                        Mumbai
+                    </option>
+
+                    <option value="Lucknow">
+                        Lucknow
+                    </option>
+
+                </select>
+
+            </header>
+
+
+
+            <!-- ================= CITY STATUS ================= -->
+
+            <section class="cards">
+
+
+                <!-- ENERGY -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        ⚡
+                    </div>
+
+                    <h3>
+                        Energy Consumption
+                    </h3>
+
+                    <h2 id="energy">
+                        Loading...
+                    </h2>
+
+                    <span class="normal">
+                        Normal
+                    </span>
+
+                </div>
+
+
+
+                <!-- WATER -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        💧
+                    </div>
+
+                    <h3>
+                        Water Consumption
+                    </h3>
+
+                    <h2 id="water">
+                        Loading...
+                    </h2>
+
+                    <span class="normal">
+                        Normal
+                    </span>
+
+                </div>
+
+
+
+                <!-- WASTE -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        🗑️
+                    </div>
+
+                    <h3>
+                        Waste Level
+                    </h3>
+
+                    <h2 id="waste">
+                        Loading...
+                    </h2>
+
+                    <span class="warning">
+                        Warning
+                    </span>
+
+                </div>
+
+
+
+                <!-- TRAFFIC -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        🚗
+                    </div>
+
+                    <h3>
+                        Traffic Status
+                    </h3>
+
+                    <h2 id="traffic">
+                        Loading...
+                    </h2>
+
+                    <span class="warning">
+                        Moderate
+                    </span>
+
+                </div>
+
+
+
+                <!-- AIR QUALITY -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        🌫️
+                    </div>
+
+                    <h3>
+                        Air Quality
+                    </h3>
+
+                    <h2 id="airQuality">
+                        Loading...
+                    </h2>
+
+                    <span class="warning">
+                        Poor
+                    </span>
+
+                </div>
+
+
+
+                <!-- GREEN COVERAGE -->
+
+                <div class="card">
+
+                    <div class="icon">
+                        🌳
+                    </div>
+
+                    <h3>
+                        Green Coverage
+                    </h3>
+
+                    <h2 id="greenCoverage">
+                        Loading...
+                    </h2>
+
+                    <span class="warning">
+                        Below Target
+                    </span>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ================= SUSTAINABILITY SCORE ================= -->
+
+            <section class="score-box">
+
+                <h2>
+                    City Sustainability Score
+                </h2>
+
+
+                <div class="score" id="sustainabilityScore">
+
+                    Loading...
+
+                </div>
+
+
+                <p>
+                    Moderate Sustainability
+                </p>
+
+            </section>
+
+
+
+            <!-- ================= ALERTS ================= -->
+
+            <section class="alerts">
+
+                <h2>
+                    Recent Alerts
+                </h2>
+
+
+                <div class="alert">
+                    💧 Possible abnormal water usage detected
+                </div>
+
+
+                <div class="alert">
+                    🗑️ Waste collection required in Sector B
+                </div>
+
+
+                <div class="alert">
+                    🚗 Traffic congestion during peak hours
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
