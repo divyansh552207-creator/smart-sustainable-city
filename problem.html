@@ -113,9 +113,7 @@ async function loadProblems() {
     try {
 
         const response =
-            await fetch(
-                "http://localhost:5000/api/problems"
-            );
+            awaitfetch("https://smart-sustainable-city.onrender.com/api/problems")
 
 
         if (!response.ok) {

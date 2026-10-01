@@ -6,7 +6,7 @@
 
 // Backend API URL
 
-const API_URL = "http://localhost:5000/api/city";
+ const API_URL = "https://smart-sustainable-city.onrender.com/api/city";
 
 
 // ==========================================
